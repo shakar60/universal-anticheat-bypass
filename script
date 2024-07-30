@@ -1,13 +1,163 @@
 --v6
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))()
 --v5
+local plr = game:GetService("Players").LocalPlayer
 
+
+
+local cclosure = syn_newcclosure or newcclosure or nil
+
+
+
+if not cclosure or not hookmetamethod then
+
+   plr:Kick("\n\nYour exploit doesn't support hookmetamethod\n")
+
+end
+
+
+
+local oldNamecall
+
+oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(self,...)
+
+   local NamecallMethod = getnamecallmethod()
+
+   local args = {...}
+
+   
+
+   if (NamecallMethod == "Kick" or NamecallMethod == "kick") and not checkcaller() then
+
+       if self ~= plr then
+
+           return oldNamecall(self,...)
+
+       end
+
+       return
+
+   end
+
+   
+
+   return oldNamecall(self,...)
+
+end))
+
+print("Adonis Bypass Antikick Has Loaded:D")  
 --v4
+local Namecall
+Namecall = hookmetamethod(game, '__namecall', function(self, ...)
+   local Caller = tostring(getcallingscript())
+   local Method = getnamecallmethod()
+   
+   if Caller == 'ClientMover' and Method == 'GetService' then
+       return
+   end
+   
+   return Namecall(self, ...)
+end)
 
+warn('[Adonis Autobypass]: this game is running with autobypass!')
 --v3
+local is_protosmasher_closure = is_protosmasher_closure or is_synapse_function
+local is_l_closure = is_l_closure or islclosure
+local get_gc_objects = get_gc_objects or getgc
 
+local bruh = function(func)
+    for idx, cnst in next, debug.getconstants(func) do
+        debug.setconstant(func, idx, "____re___a__")
+    end
+end
+
+for _, func in next, getgc() do
+    if typeof(func) == "function" and is_l_closure(func) and not is_protosmasher_closure(func) then
+        local script = getfenv(func).script
+        if script and script:GetFullName():lower():match("adonis") then
+            bruh(func)
+        end
+        for idx, cnst in next, debug.getconstants(func) do
+            local cnst = tostring(cnst):lower()
+            if cnst:match("adonis") or cnst:match("acli") then
+                bruh(func)
+                break
+            end
+        end
+    end
+end
 --v2
+local notif = loadstring(game:HttpGet("https://raw.githubusercontent.com/insanedude59/notiflib/main/main"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vKhonshu/intro2/main/ui2"))()
+local NotifyLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vKhonshu/intro/main/ui"))()
+ NotifyLib.prompt('Adonis Anti-Cheat Disabler Bypass', 'bypassed', 1.2)
+ NotifyLib.prompt('Adonis Anti-Cheat Disabler Bypass', 'this only works for games that have adonis in it', 1.2)
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RelkzzRebranded/Bypassed---OBFUSCATED..../main/Adonis%20BYPASS.lua"))()
 --v1
-
+for wendigo, iscool in pairs(getgc(true)) do
+    if pcall(function() return rawget(iscool, "indexInstance") end) 
+    and type(rawget(iscool, "indexInstance")) == "table" 
+    and rawget(iscool, "indexInstance")[1] == "kick" then
+        iscool.tvk = {"kick", function() 
+            return game.Workspace:WaitForChild("") 
+        end}
+    end
+end
 -dh anti cheat bypass
+local getinfo = getinfo or debug.getinfo
+local DEBUG = false
+local Hooked = {}
+
+local Detected, Kill
+
+setthreadidentity(2)
+
+for i, v in getgc(true) do
+    if typeof(v) == "table" then
+        local DetectFunc = rawget(v, "Detected")
+        local KillFunc = rawget(v, "Kill")
+
+        if typeof(DetectFunc) == "function" and not Detected then
+            Detected = DetectFunc
+
+            local Old; Old = hookfunction(Detected, function(Action, Info, NoCrash)
+                if Action ~= "_" then
+                    if DEBUG then
+                        warn(Adonis AntiCheat flagged\nMethod: {Action}\nInfo: {Info})
+                    end
+                end
+
+                return true
+            end)
+
+            table.insert(Hooked, Detected)
+        end
+
+        if rawget(v, "Variables") and rawget(v, "Process") and typeof(KillFunc) == "function" and not Kill then
+            Kill = KillFunc
+            local Old; Old = hookfunction(Kill, function(Info)
+                if DEBUG then
+                    warn(Adonis AntiCheat tried to kill (fallback): {Info})
+                end
+            end)
+
+            table.insert(Hooked, Kill)
+        end
+    end
+end
+
+local Old; Old = hookfunction(getrenv().debug.info, newcclosure(function(...)
+    local LevelOrFunc, Info = ...
+
+    if Detected and LevelOrFunc == Detected then
+        if DEBUG then
+            warn(Adonis AntiCheat sanity check detected and broken)
+        end
+
+        return coroutine.yield(coroutine.running())
+    end
+
+    return Old(...)
+end))
+--
