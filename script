@@ -1,6 +1,10 @@
 --v6
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",true))()
+
 --v5
+
+
 local plr = game:GetService("Players").LocalPlayer
 
 
@@ -46,7 +50,9 @@ oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(self,...)
 end))
 
 print("Adonis Bypass Antikick Has Loaded:D")  
+
 --v4
+
 local Namecall
 Namecall = hookmetamethod(game, '__namecall', function(self, ...)
    local Caller = tostring(getcallingscript())
@@ -86,7 +92,9 @@ for _, func in next, getgc() do
         end
     end
 end
+
 --v2
+
 local notif = loadstring(game:HttpGet("https://raw.githubusercontent.com/insanedude59/notiflib/main/main"))()
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vKhonshu/intro2/main/ui2"))()
 local NotifyLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vKhonshu/intro/main/ui"))()
@@ -94,7 +102,9 @@ local NotifyLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vKh
  NotifyLib.prompt('Adonis Anti-Cheat Disabler Bypass', 'this only works for games that have adonis in it', 1.2)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RelkzzRebranded/Bypassed---OBFUSCATED..../main/Adonis%20BYPASS.lua"))()
+
 --v1
+
 for wendigo, iscool in pairs(getgc(true)) do
     if pcall(function() return rawget(iscool, "indexInstance") end) 
     and type(rawget(iscool, "indexInstance")) == "table" 
@@ -160,4 +170,3 @@ local Old; Old = hookfunction(getrenv().debug.info, newcclosure(function(...)
 
     return Old(...)
 end))
---
