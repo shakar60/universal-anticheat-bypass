@@ -23,19 +23,6 @@ oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(self, ...)
 end))
 print("Adonis Bypass Antikick Has Loaded:D")
 
--- v4: Hook Method to Bypass Adonis Scripts
-local Namecall
-Namecall = hookmetamethod(game, '__namecall', function(self, ...)
-    local Caller = tostring(getcallingscript())
-    local Method = getnamecallmethod()
-    if Caller == 'ClientMover' and Method == 'GetService' then
-        return
-    end
-    return Namecall(self, ...)
-end)
-
-warn('[Adonis Autobypass]: this game is running with autobypass!')
-
 -- v3: Obfuscate Adonis Detection
 local is_protosmasher_closure = is_protosmasher_closure or is_synapse_function
 local is_l_closure = is_l_closure or islclosure
