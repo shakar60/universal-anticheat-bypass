@@ -21,13 +21,8 @@ oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(self, ...)
     end
     return oldNamecall(self, ...)
 end))
-print("Adonis Bypass Antikick Has Loaded:D")
 
--- v2: Load Notification and Bypass Scripts
-local notif = loadstring(game:HttpGet("https://raw.githubusercontent.com/insanedude59/notiflib/main/main"))()
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vKhonshu/intro2/main/ui2"))()
-local NotifyLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vKhonshu/intro/main/ui"))()
-NotifyLib.prompt('Adonis Anti-Cheat Disabler Bypass', 'bypassed', 1.2)
+-- v2: Bypass Scripts
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RelkzzRebranded/Bypassed---OBFUSCATED..../main/Adonis%20BYPASS.lua"))()
 
