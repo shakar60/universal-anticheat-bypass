@@ -1,3 +1,11 @@
+-- Check if script has already been executed
+if _G.ScriptExecuted then
+    return
+end
+
+-- Set the flag indicating that the script is now executed
+_G.ScriptExecuted = true
+
 -- v6: Load Adonis Source
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua", true))()
 
@@ -23,7 +31,6 @@ oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(self, ...)
 end))
 
 -- v2: Bypass Scripts
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RelkzzRebranded/Bypassed---OBFUSCATED..../main/Adonis%20BYPASS.lua"))()
 
 -- v1: Adjust Game GC Table
@@ -92,12 +99,10 @@ local Old; Old = hookfunction(getrenv().debug.info, newcclosure(function(...)
     return Old(...)
 end))
 
---universal anticheat bypasser
-
+-- universal anticheat bypasser
 loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Adonis-Anticheat-Bypass-11111"))()
 
---hood custom anticheat bypass
-
+-- hood custom anticheat bypass
 for _, con in next, getconnections(workspace.CurrentCamera.Changed) do
   task.wait()
     con:Disable()
