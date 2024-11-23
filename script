@@ -1,11 +1,3 @@
--- Check if script has already been executed
-if _G.ScriptExecuted then
-    return
-end
-
--- Set the flag indicating that the script is now executed
-_G.ScriptExecuted = true
-
 -- v6: Load Adonis Source
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua", true))()
 
