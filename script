@@ -93,8 +93,6 @@ end))
 
 -- dh anticheat bypass 2
 
-Newest da hood bypasser 
-
       Bypass = true
 
     local GameMT = getrawmetatable(game)
