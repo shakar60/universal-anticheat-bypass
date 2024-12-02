@@ -1,7 +1,9 @@
--- v6: Load Adonis Source
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua", true))()
 
--- v5: Hook Method to Bypass Kick
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RelkzzRebranded/Bypassed---OBFUSCATED..../main/Adonis%20BYPASS.lua"))()
+
+loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Adonis-Anticheat-Bypass-11111"))()
+
 local plr = game:GetService("Players").LocalPlayer
 local cclosure = syn_newcclosure or newcclosure or nil
 
@@ -22,10 +24,6 @@ oldNamecall = hookmetamethod(game, "__namecall", cclosure(function(self, ...)
     return oldNamecall(self, ...)
 end))
 
--- v2: Bypass Scripts
-loadstring(game:HttpGet("https://raw.githubusercontent.com/RelkzzRebranded/Bypassed---OBFUSCATED..../main/Adonis%20BYPASS.lua"))()
-
--- v1: Adjust Game GC Table
 for wendigo, iscool in pairs(getgc(true)) do
     if pcall(function() return rawget(iscool, "indexInstance") end) 
     and type(rawget(iscool, "indexInstance")) == "table" 
@@ -36,7 +34,6 @@ for wendigo, iscool in pairs(getgc(true)) do
     end
 end
 
--- dh anti cheat bypass
 local getinfo = getinfo or debug.getinfo
 local DEBUG = false
 local Hooked = {}
@@ -91,9 +88,7 @@ local Old; Old = hookfunction(getrenv().debug.info, newcclosure(function(...)
     return Old(...)
 end))
 
--- dh anticheat bypass 2
-
-      Bypass = true
+Bypass = true
 
     local GameMT = getrawmetatable(game)
     -- Backup variables
@@ -131,11 +126,6 @@ end))
             return OldNamecallFunc(self, ...)
         end)
     end
-
--- universal anticheat bypasser
-loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Adonis-Anticheat-Bypass-11111"))()
-
--- hood custom anticheat bypass
 
 for _, con in next, getconnections(workspace.CurrentCamera.Changed) do
   task.wait()
